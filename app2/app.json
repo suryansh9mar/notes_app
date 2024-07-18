@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "app2",
+    "slug": "app2",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adapative-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.suryansh9mar.app2",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "737cd71e-28a1-4266-a58b-e61851449c0d"
+      }
+    }
+  }
+}
