@@ -10,10 +10,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import NoteDetais from './app/components/NoteDetais';
 import NotesProvider from './context/NotesProvider';
 import * as MediaLibrary from 'expo-media-library';
-import { enableScreens } from 'react-native-screens';
 
-// Enable react-native-screens
-// enableScreens();
+
+
+
 
 
 
@@ -21,7 +21,7 @@ import { enableScreens } from 'react-native-screens';
 
 
  function App() {
-  const [hasPermission, setHasPermission] = useState(null);
+  // const [hasPermission, setHasPermission] = useState(null);
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({});
   const findUser = async () => {
@@ -39,12 +39,7 @@ import { enableScreens } from 'react-native-screens';
   useEffect(() => {
     console.log('User state:', user); // Debugging log
   }, [user]);
-  useEffect(() => {
-    (async () => {
-        const { status } = await MediaLibrary.requestPermissionsAsync();
-        setHasPermission(status === 'granted');
-    })();
-}, []);
+ 
 if (!user.name ) return <Intro onFinish={findUser} />;
   return (
     <>
@@ -63,4 +58,4 @@ if (!user.name ) return <Intro onFinish={findUser} />;
   )
 }
 
-export default registerRootComponent(App);
+export default registerRootComponent (App);

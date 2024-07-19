@@ -31,7 +31,7 @@ export default function NoteScreen({ user, navigation }) {
             <StatusBar barStyle={'dark-content'} backgroundColor={colors.LIGHt} />
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
 
-                <View style={styles.NoteScreen}>
+                <View style={styles.NoteScreen} >
                     <Text style={styles.header}>{`Hello ${user.name}`}</Text>
                     {notes.length ? <SearchBar containerStyle={{ marginVertical: 15, }} /> : null}
 
