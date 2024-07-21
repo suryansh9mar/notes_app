@@ -20,15 +20,18 @@ import * as MediaLibrary from 'expo-media-library';
 
 
 
- function App() {
-  // const [hasPermission, setHasPermission] = useState(null);
+function App() {
+  const [isUsedFirstTime, setIsUsedFirstTime] = useState(false);
+
   const Stack = createNativeStackNavigator();
   const [user, setUser] = useState({});
   const findUser = async () => {
     const result = await AsyncStorage.getItem('user');
-    if (result !== null) {
-      setUser(JSON.parse(result));
-    }
+    if (result === null) return setIsUsedFirstTime(true);
+
+    setUser(JSON.parse(result));
+    setIsUsedFirstTime(false);
+
   };
   const RenderNoteScreen = (props) => <NoteScreen {...props} user={user} />
 
@@ -36,11 +39,9 @@ import * as MediaLibrary from 'expo-media-library';
     findUser()
     // AsyncStorage.clear()
   }, [])
-  useEffect(() => {
-    console.log('User state:', user); // Debugging log
-  }, [user]);
- 
-if (!user.name ) return <Intro onFinish={findUser} />;
+
+
+  if (isUsedFirstTime) return <Intro onFinish={findUser} />;
   return (
     <>
       <NavigationContainer>
@@ -58,4 +59,4 @@ if (!user.name ) return <Intro onFinish={findUser} />;
   )
 }
 
-export default registerRootComponent (App);
+export default registerRootComponent(App);
